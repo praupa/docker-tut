@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+
+before_install:
+  - docker build -t praupa/docker_tut -f Dockerfile.dev .
+
+script:
+  - docker run praupa/docker_tut npm run test -- --coverage
